@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="show-entries">
+            <span>Show</span>
+            <select [ngModel]="entriesOnPage">
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+            </select>
+            <span>entries</span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="text-center">Employees <b>Details</b></h2>
+        </div>
+        
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of employees">
+          <td>{{ element.emp_id }}</td>
+          <td>{{ element.emp_name | uppercase }}</td>
+          <td>{{ element.salary | currency }}</td>
+          <td>
+            <!-- <span class="table-remove">
+                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#editModal" (click)="selectElement(element)">Edit</button>
+              </span> -->
+            <!-- <span class="table-remove">
+                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#delModal" (click)="selectElement(element)">Delete</button>
+              </span> -->
+            <a class="view" title="View" data-toggle="modal" data-target="#viewModal" (click)="selectEmployeeObject(element)"><i
+                class="material-icons">&#xE417;</i></a>
+
+            <a class="edit" title="Edit" data-toggle="modal" data-target="#editModal" (click)="selectElement(element)"><i
+                class="material-icons">&#xE254;</i></a>
+
+            <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteEmployee(element.emp_id)"><i class="material-icons">&#xE872;</i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+      Add Employee
+    </button>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#specificEmployeeModal">
+          Get Specific Employee 
+        </button> -->
+  </div>
+</div>
+
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" (click)="getEmployees">
+  Get employees
+</button> -->
+
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" >
+  Delete Employee
+</button> -->
+
+<app-emp-modal [id]="selectedEmployee" [empObject]="selectedEmployeeObject"> </app-emp-modal>

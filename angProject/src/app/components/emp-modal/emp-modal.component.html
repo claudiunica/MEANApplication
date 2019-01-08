@@ -1,0 +1,167 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline" >
+          <div class="form-group">
+            <label for="exampleInputName" class="modal-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName" [(ngModel)]="emp_name" placeholder="Name"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2" class="modal-label">Salary</label>
+            <input type="number" class="form-control" id="exampleInputSalary" [(ngModel)]="salary" placeholder="Salary"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="addEmployee()">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Edit-->
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline" >
+          <div class="form-group">
+            <label for="exampleInputName" class="modal-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName" [(ngModel)]="emp_name" placeholder="Name"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2" class="modal-label">Salary</label>
+            <input type="number" class="form-control" id="exampleInputSalary" [(ngModel)]="salary" placeholder="Salary"
+              [ngModelOptions]="{standalone: true}">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="editEmployee()">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--View-->
+
+<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>{{selectedEmployeeObject.emp_id}}</td>
+              <td>{{selectedEmployeeObject.emp_name}}</td>
+              <td>{{selectedEmployeeObject.salary | currency}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Search-->
+
+
+<div class="modal fade" id="specificEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">View Employee</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>{{selectedEmployeeObject.emp_id}}</td>
+                <td>{{selectedEmployeeObject.emp_name}}</td>
+                <td>{{selectedEmployeeObject.salary | currency}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- Delete
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline" method="POST" action="/">
+          <div class="form-group">
+            <label for="exampleInputId" class="modal-label">Id</label>
+            <input type="number" class="form-control" [(ngModel)]="emp_id" placeholder="Id" [ngModelOptions]="{standalone: true}">
+          </div>
+          <button type="submit" class="btn btn-default" (click)="deleteEmployee(emp_id)">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->

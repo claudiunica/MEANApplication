@@ -1,0 +1,43 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "client-sessions": "^0.8.0",
+    "connect-busboy": "0.0.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "excel": "^1.0.0",
+    "exceljs": "^1.6.3",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "fs-extra": "^7.0.0",
+    "happn-password-hash-and-salt": "^1.1.0",
+    "jsonwebtoken": "^8.3.0",
+    "jwt-simple": "^0.5.5",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "mssql": "^4.1.0",
+    "multer": "^1.4.1",
+    "ngx-bootstrap": "^3.1.4",
+    "ngx-pagination": "^3.1.1",
+    "nodemailer": "^4.6.8",
+    "npm": "^6.4.1",
+    "pako": "^1.0.7",
+    "password-generator": "^2.2.0",
+    "q": "^1.5.1",
+    "readable-stream": "^3.0.6",
+    "rfr": "^1.2.3",
+    "winston": "^3.1.0",
+    "xlsx-to-json": "^0.3.0"
+  }
+}
