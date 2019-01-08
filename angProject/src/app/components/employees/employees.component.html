@@ -17,21 +17,23 @@
         <div class="col-sm-4">
           <h2 class="text-center">Employees <b>Details</b></h2>
         </div>
-        </div>
-        
       </div>
-    
+
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Salary</th>
+          <th>Name </th>
+          <th (click)="sortEmployees()">
+            <mdb-icon icon="sort"></mdb-icon> Salary
+          </th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let element of employees">
+        <tr *ngFor="let element of employees; let i = index">
           <td>{{ element.emp_id }}</td>
           <td>{{ element.emp_name | uppercase }}</td>
           <td>{{ element.salary | currency }}</td>

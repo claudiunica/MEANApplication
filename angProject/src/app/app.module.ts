@@ -14,6 +14,7 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule } from "@angular/material";
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { FieldErrorDisplayComponent } from './field-error-display/field-error-display.component';
+import { WavesModule, TableModule, IconsModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { FieldErrorDisplayComponent } from './field-error-display/field-error-di
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     NgBootstrapFormValidationModule.forRoot(),
-    NgBootstrapFormValidationModule
+    NgBootstrapFormValidationModule,
+    WavesModule,
+    TableModule,
+    IconsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

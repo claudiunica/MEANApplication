@@ -18,7 +18,6 @@ export class EmployeesComponent implements OnInit {
 
   p = 1;
 
-
   employeeObj: any = {};
   emp_id: Number = 0;
   emp_name: String = "";
@@ -26,7 +25,6 @@ export class EmployeesComponent implements OnInit {
 
   itemsPerPage: any = 4;
   ngOnInit() {
-    
     this.empService
       .getEmployees()
       .subscribe((data: Employee[]) => { this.employees = data; })
@@ -60,5 +58,40 @@ export class EmployeesComponent implements OnInit {
         console.log(resp)
       });
   }
+
+  sortOrder: any = -1;
+
+  sortEmployees() {
+    console.log('sortEmployee() called')
+    this.sortOrder = !this.sortOrder;
+
+    this.employees.sort((a, b) => {
+      const sal1 = a.salary;
+      const sal2 = b.salary;
+      let comparison = -1;
+      if (sal1 > sal2) {
+       return comparison;
+      }
+       
+      return comparison * this.sortOrder;
+    });
+  }
+
+//   compare(a, b) {
+//     const sal1 = a.salary;
+//     const sal2 = b.salary;
+//     let comparison = 0;
+//     if (sal1 > sal2) {
+//       comparison = 1;
+//     } else if (sal1 < sal2) {
+//       comparison = -1;
+//     }
+
+//     console.log(this.p)
+//     //  if(this.sortOrder)
+//     //    return comparison;
+
+//     return comparison * (-1);
+//   }
 }
 
