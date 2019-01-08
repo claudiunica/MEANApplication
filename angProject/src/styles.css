@@ -149,6 +149,8 @@ margin-left: 5px;
 
 .modal-dialog{
     margin-top: 5%;
+    width: 20%;
+    height: 10%;
 }
 .fa fa-search{
     align:right;

@@ -28,6 +28,7 @@
     "morgan": "^1.9.1",
     "mssql": "^4.1.0",
     "multer": "^1.4.1",
+    "ng-bootstrap-form-validation": "^3.0.3",
     "ngx-bootstrap": "^3.1.4",
     "ngx-pagination": "^3.1.1",
     "nodemailer": "^4.6.8",
