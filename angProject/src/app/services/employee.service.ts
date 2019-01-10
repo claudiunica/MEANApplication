@@ -21,7 +21,7 @@ export class EmployeeService {
   }
 
   addEmployee(elem) {
-    console.log(elem);
+    console.log('elem from service'+elem);
     return this.http.post('http://localhost:3000/employees/addEmployees', elem, {
       observe: 'body',
       withCredentials: true,

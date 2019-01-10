@@ -3,9 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeeService } from './services/employee.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 const appRoutes: Routes = [
-  { path: 'employee', component: EmployeesComponent }
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  { path: 'employee', component: EmployeesComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent}
+  
 ];
 
 @NgModule({

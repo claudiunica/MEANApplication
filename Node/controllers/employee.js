@@ -1,4 +1,3 @@
-
 var express = require('express')
 var router = express.Router()
 const knex = require('../db.js')
@@ -69,10 +68,6 @@ router.get('/getEmployees/:id', function (req, res, next) {
       })
     })
 });
-
-
-
-
 
 router.post('/addEmployees', (req, res, next) => {
   console.log(req.body);

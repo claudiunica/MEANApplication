@@ -1,0 +1,12 @@
+.login-block{
+    margin-top: 10%;
+    width: 15%;
+    margin-right:auto; 
+    margin-left:auto;
+}
+#loginBtn{
+    margin-right:8px;
+}
+span{
+    color:red;
+}

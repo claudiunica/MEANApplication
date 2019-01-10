@@ -3,18 +3,6 @@
     <div class="table-title">
       <div class="row">
         <div class="col-sm-4">
-          <div class="show-entries">
-            <span>Show</span>
-            <select [ngModel]="entriesOnPage">
-              <option>5</option>
-              <option>10</option>
-              <option>15</option>
-              <option>20</option>
-            </select>
-            <span>entries</span>
-          </div>
-        </div>
-        <div class="col-sm-4">
           <h2 class="text-center">Employees <b>Details</b></h2>
         </div>
       </div>
@@ -26,8 +14,8 @@
         <tr>
           <th>ID</th>
           <th>Name </th>
-          <th (click)="sortEmployees()">
-            <mdb-icon icon="sort"></mdb-icon> Salary
+          <th >
+            Salary <mdb-icon icon="sort" (click)="sortEmployees()"></mdb-icon>
           </th>
           <th>Actions</th>
         </tr>
@@ -74,3 +62,6 @@
 </button> -->
 
 <app-emp-modal [id]="selectedEmployee" [empObject]="selectedEmployeeObject"> </app-emp-modal>
+<!-- TODO: Check-box to delete multiple employees
+TODO: Search box
+TODO: Number of entries -->
