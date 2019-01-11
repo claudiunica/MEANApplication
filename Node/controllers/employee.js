@@ -3,30 +3,6 @@ var router = express.Router()
 const knex = require('../db.js')
 
 
-//Search employee by name
-router.get('/searchEmployees/:name', function (req, res, next) {
-  console.log('name from search()'+req.params.name)
-  knex
-    .from('employee')
-    .select('*')
-    .where('emp_name', '=', req.params.name)
-    .then((employee) => {
-      if (employee.length > 0) {
-        res.json(employee)
-      } else {
-        res.json({
-          success: false,
-          message: "Error in retriving employee. ID inexistent."
-        })
-      }
-    })
-    .catch(() => {
-      res.json({
-        success: false,
-        message: "Error in retriving employee."
-      })
-    })
-});
 
 // get all employees
 router.get('/getEmployees', function (req, res, next) {
@@ -136,6 +112,30 @@ router.put('/updateEmployees/:id',(req,res)=>{
 })
 
 
+//Search employee by name
+router.get('/searchEmployees/:name', function (req, res, next) {
+  console.log('name from search()'+req.params.name)
+  knex
+    .from('employee')
+    .select('*')
+    .where('emp_name', '=', req.params.name)
+    .then((employee) => {
+      if (employee.length > 0) {
+        res.json(employee)
+      } else {
+        res.json({
+          success: false,
+          message: "Error in retriving employee. ID inexistent."
+        })
+      }
+    })
+    .catch(() => {
+      res.json({
+        success: false,
+        message: "Error in retriving employee."
+      })
+    })
+});
 module.exports = router;
 
 
