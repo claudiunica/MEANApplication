@@ -36,15 +36,6 @@ export class EmpModalComponent implements OnInit, OnChanges {
       .subscribe((data: Employee[]) => { this.employees = data; })
   }
 
-  onSubmit() {
-    console.log(this.formGroup);
-  }
- 
-  onReset() {
-    this.formGroup.reset();
-  }
-
-
   ngOnChanges() {
     console.log(this.receivedIdFromParentComponent)
     
@@ -98,19 +89,11 @@ export class EmpModalComponent implements OnInit, OnChanges {
         console.log(resp)
       })
 
-    //location.reload();
+    location.reload();
   }
 
-  isFieldValid(field: string) {
+  isValid(field: string) {
     return !this.formGroup.get(field).valid && this.formGroup.get(field).touched;
   }
   
-  displayFieldCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
-
-
 }

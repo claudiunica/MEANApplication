@@ -20,7 +20,8 @@ router.post('/login', function (req, resp, next) {
         //if (password === user[0].password) {
         if (passwordHash.verify(password, user[0].password)) {
           var expires = new Date();
-          expires.setHours(expires.getHours() + 8)
+          // expires.setHours(expires.getHours() + 2)
+          expires.setMinutes(expires.getMinutes() + 1)
           user[0].token = jwt.encode({
             exp: expires.getMilliseconds,
             user: user[0]
@@ -38,6 +39,15 @@ router.post('/login', function (req, resp, next) {
     });
 
 });
+
+// logout user
+router.get('/logout', (req, res) => {
+  res.json({
+    success: true,
+    message: "Logout successfully."
+  })
+})
+
 
 router.post('/register', function (req, res, next) {
   // console.log(req.body.name + req.body.email+req.body.password)
@@ -104,7 +114,7 @@ router.delete('/deleteUsers/:id', (req, res) => {
       }
     })
 })
-
+  
 
 
 module.exports = router;

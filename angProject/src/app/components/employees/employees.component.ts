@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employees.model';
 import { Router } from '@angular/router';
+
+import * as XLSX from 'xlsx';
+import * as jwt_decode from "jwt-decode";
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-employees',
@@ -9,25 +13,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-
-  constructor(private empService: EmployeeService, private router: Router) { }
+  @ViewChild('table') table: ElementRef;
+  constructor(private empService: EmployeeService,  private authService: AuthenticationService,private router: Router) { }
 
   employees: Employee[];
   selectedEmployee: any = {};
   selectedEmployeeObject: any = {};
-
-  p = 1;
 
   employeeObj: any = {};
   emp_id: Number = 0;
   emp_name: String = "";
   salary: Number = 0;
 
-  itemsPerPage: any = 4;
+  username = jwt_decode(localStorage.getItem('token')).user.name;
+
+
   ngOnInit() {
     this.empService
       .getEmployees()
       .subscribe((data: Employee[]) => { this.employees = data; })
+  }
+
+  logout(){
+    this.authService.logout();
+    location.reload();
+
   }
 
   //Select employee id
@@ -50,14 +60,6 @@ export class EmployeesComponent implements OnInit {
     }
     location.reload();
   }
-  searchEmployee(name) {
-    console.log(name);
-    this.empService
-      .searchEmployee(name)
-      .subscribe(resp => {
-        console.log(resp)
-      });
-  }
 
   sortOrder: any = -1;
 
@@ -77,21 +79,14 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
-//   compare(a, b) {
-//     const sal1 = a.salary;
-//     const sal2 = b.salary;
-//     let comparison = 0;
-//     if (sal1 > sal2) {
-//       comparison = 1;
-//     } else if (sal1 < sal2) {
-//       comparison = -1;
-//     }
-
-//     console.log(this.p)
-//     //  if(this.sortOrder)
-//     //    return comparison;
-
-//     return comparison * (-1);
-//   }
+  downloadEmployees(){
+    console.log(this.table)
+    const ws: XLSX.WorkSheet=XLSX.utils.table_to_sheet(this.table.nativeElement);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+    /* save to file */
+    XLSX.writeFile(wb, 'SheetJS.xlsx');
+  }
 }
 

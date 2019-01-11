@@ -15,7 +15,6 @@ import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { WavesModule, TableModule, IconsModule } from 'angular-bootstrap-md';
 import { LoginComponent } from './components/login/login.component';
-import { FieldErrorDisplayComponent } from './components/field-error-display/field-error-display.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsersComponent } from './components/users/users.component';
 
@@ -25,7 +24,6 @@ import { UsersComponent } from './components/users/users.component';
     AppComponent,
     EmployeesComponent,
     EmpModalComponent,
-    FieldErrorDisplayComponent,
     LoginComponent,
     RegisterComponent,
     UsersComponent,

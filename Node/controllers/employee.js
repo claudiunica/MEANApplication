@@ -3,7 +3,6 @@ var router = express.Router()
 const knex = require('../db.js')
 
 
-
 // get all employees
 router.get('/getEmployees', function (req, res, next) {
   knex
@@ -136,6 +135,8 @@ router.get('/searchEmployees/:name', function (req, res, next) {
       })
     })
 });
+
+
 module.exports = router;
 
 

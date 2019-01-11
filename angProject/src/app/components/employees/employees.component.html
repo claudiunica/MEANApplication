@@ -2,14 +2,21 @@
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
-        <div class="col-sm-4">
+          <div class="col-sm-4">
+          </div>
+
+          <div class="col-sm-4">
           <h2 class="text-center">Employees <b>Details</b></h2>
         </div>
+        <div class="col-sm-4">
+          <h5 >Hello, {{username}}</h5>
+        <button type="button" class="btn btn-default" (click)="logout()"> Logout </button>
+
       </div>
 
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped" #table>
       <thead>
         <tr>
           <th>ID</th>
@@ -26,12 +33,6 @@
           <td>{{ element.emp_name | uppercase }}</td>
           <td>{{ element.salary | currency }}</td>
           <td>
-            <!-- <span class="table-remove">
-                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#editModal" (click)="selectElement(element)">Edit</button>
-              </span> -->
-            <!-- <span class="table-remove">
-                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" data-toggle="modal" data-target="#delModal" (click)="selectElement(element)">Delete</button>
-              </span> -->
             <a class="view" title="View" data-toggle="modal" data-target="#viewModal" (click)="selectEmployeeObject(element)"><i
                 class="material-icons">&#xE417;</i></a>
 
@@ -46,20 +47,12 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
       Add Employee
     </button>
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#specificEmployeeModal">
-          Get Specific Employee 
-        </button> -->
+    <button type="button" class="btn btn-primary" (click)="downloadEmployees()">
+      Download xlsx
+    </button>
   </div>
 </div>
 
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" (click)="getEmployees">
-  Get employees
-</button> -->
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" >
-  Delete Employee
-</button> -->
 
 <app-emp-modal [id]="selectedEmployee" [empObject]="selectedEmployeeObject"> </app-emp-modal>
 <!-- TODO: Check-box to delete multiple employees
